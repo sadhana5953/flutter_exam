@@ -39,7 +39,7 @@ class _cartScreenState extends State<cartScreen> {
           onTap: (){
             for(int i=0;i<cartList.length;i++)
             {
-              amount=cartList[i]['price'];
+              amount=(amount+cartList[i]['price']).toInt();
             }
             gst=(amount*18/100);
             total=gst+amount;
