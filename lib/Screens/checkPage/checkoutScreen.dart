@@ -11,6 +11,14 @@ class _checkoutscreenState extends State<checkoutscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Checkout Screen"),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.of(context).pop();
+          },
+            child: Icon(Icons.arrow_back)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
@@ -18,20 +26,22 @@ class _checkoutscreenState extends State<checkoutscreen> {
             Container(
               height: 150,
               width: 300,
-              margin: EdgeInsets.only(top: 30,),
-              color: Colors.green.shade300,
+              decoration: BoxDecoration(
+                color: Colors.green.shade300,
+                borderRadius: BorderRadius.circular(15),
+              ),
               alignment: Alignment.centerLeft,
               child: Text("     Amount: $amount\n     Gst: $gst\n     Total: $total",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
             ),
             ElevatedButton(onPressed: (){
               showDialog(context: context, builder: (BuildContext context){
                return AlertDialog(
-                 title: Text("payment"),
-                 content: Text("payment is done"),
+                 title: Text("Payment Massage"),
+                 content: Text("payment is done",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 20),),
                  actions: [
                    OutlinedButton(onPressed: (){
                      Navigator.of(context).pop();
-                   }, child: Text("ok"))
+                   }, child: Text("ok",style: TextStyle(fontSize: 20),))
                  ],
                );
               });

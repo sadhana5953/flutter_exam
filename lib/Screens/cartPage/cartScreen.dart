@@ -15,20 +15,25 @@ class _cartScreenState extends State<cartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('cart'),
+        title: Text('Cart Screen'),
       ),
       body: Center(
           child: Column(children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(children: List.generate(
-            cartList.length,
-                (index) => cart_list(
-                name: cartList[index]['name'],
-                price: cartList[index]['price'],
-                index: index,
-                img: cartList[index]['image']),
-          ),),
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(children: List.generate(
+                cartList.length,
+                    (index) => cart_list(
+                    name: cartList[index]['name'],
+                    price: cartList[index]['price'],
+                    index: index,
+                    img: cartList[index]['image']),
+              ),),
+            ),
+          ),
         ),
         GestureDetector(
           onTap: (){
@@ -43,9 +48,9 @@ class _cartScreenState extends State<cartScreen> {
           child: Container(
             height: 60,
             width: 300,
-            margin: EdgeInsets.only(top: 150),
+            margin: EdgeInsets.only(bottom: 15),
             decoration: BoxDecoration(
-              color: Colors.green.shade400,
+              color: Colors.green,
               borderRadius: BorderRadius.circular(25)
             ),
             alignment: Alignment.center,
@@ -80,8 +85,8 @@ class _cartScreenState extends State<cartScreen> {
             ),
           ),
           Text(
-            '$name\n$price\n',
-            style: TextStyle(color: Colors.white, fontSize: 25),
+            '$name\n$price/-\n',
+            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),
           ),
           GestureDetector(
             onTap: (){
@@ -91,7 +96,6 @@ class _cartScreenState extends State<cartScreen> {
             },
             child: Icon(
               Icons.delete,
-              color: Colors.white,
               size: 30,
             ),
           ),

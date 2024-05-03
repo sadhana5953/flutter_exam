@@ -14,7 +14,7 @@ class _detailScrrenState extends State<detailScrren> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("dettail"),
+        title: Text("Detail Screen"),
       ),
       body: Column(
         children: [
@@ -37,12 +37,15 @@ class _detailScrrenState extends State<detailScrren> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${product[selectedIndex]['name']}\n⭐⭐⭐⭐⭐\nprice: ${product[selectedIndex]['price']}/-',
+                  '${product[selectedIndex]['name']}',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
+                Text("price: ${product[selectedIndex]['price']}/-",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.green),),
+                Text('⭐⭐⭐⭐⭐',style: TextStyle(fontSize: 22),),
+                Text('\nProduct Detail',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                 Text(
-                  '\nThe fruit is vibrant and juicy fruit , known for its refreshing flavour and bright color. With a tangy savoury sweetness, it add a burst of freshness',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  'The fruit is vibrant and juicy fruit , known for its refreshing flavour and bright color. With a tangy savoury sweetness, it add a burst of freshness to both sweet and savory dishes.',
+                  style: TextStyle(fontWeight:FontWeight.w500,fontSize: 20),
                 ),
                 GestureDetector(
                   onTap: (){
@@ -51,7 +54,7 @@ class _detailScrrenState extends State<detailScrren> {
                   child: Container(
                     height: 60,
                     width: 300,
-                    margin: EdgeInsets.only(top: 50,left: 30),
+                    margin: EdgeInsets.only(top: 70,left: 30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: Colors.green,
